@@ -12,32 +12,31 @@ We propose **AmbigST** to mitigate speech sense ambiguity in speech translation.
 
 
 
-### Result
-
-From En-to-XX
+#### Result on En-to-XX
 <div align="left">
   <img src="/Figure/result1.png" width="70%">
 </div>
 
-From XX-to-En
+#### Result on XX-to-En
 <div align="left">
   <img src="/Figure/result2.png" width="70%">
 </div>
 
-### Download Trained Models
+#### Download Trained Models
 
 The models are trained based on pytorch.
 
-|      | **Model**|
-| AmbigST En-De   | [Download]()|
-| AmbigST En-Fe   | [Download]()|
-| AmbigST En-Es  | [Download]()|
-| AmbigST Fr-En   | [Download]()|
-| AmbigST Es-En   | [Download]()|
-| AmbigST De-En  | [Download]()|
+| Language Pair | Download Link |
+|---------------|---------------|
+| AmbigST En-De | [Download]()  |
+| AmbigST En-Fe | [Download]()  |
+| AmbigST En-Es | [Download]()  |
+| AmbigST Fr-En | [Download]()  |
+| AmbigST Es-En | [Download]()  |
+| AmbigST De-En | [Download]()  |
 
 
-## Setup
+## ⚙️ Setup
 
 ```bash
 git submodule update --init SpeechUT/fairseq
@@ -47,22 +46,22 @@ pip install sacrebleu==1.5.1
 ```
 
 
-### Download Pretrained Model
+#### Download Pretrained Model
 
 Download the pretrained model of [SpeechUT](https://github.com/microsoft/SpeechT5/tree/main/SpeechUT)
 
 
-### Data preparation
+#### Data preparation
 
 ST models are fine-tuned with [fairseq speech-to-text](https://github.com/facebookresearch/fairseq/tree/main/examples/speech_to_text) task, so just follow the data preparation instructions [here](https://github.com/facebookresearch/fairseq/tree/main/examples/speech_to_text#data-preparation).
 To fine-tune our released models, you should use the same sentecepiece models and dictionaries as ours:
 
-- En-De: [sentencepiece_model](/data/MuSTC/en_de/spm_unigram10000.model), [dict](/data/MuSTC/en_de/dict.spm.txt)
-- En-Es: [sentencepiece_model](/data/MuSTC/en_es/spm_unigram10000.model), [dict](/data/MuSTC/en_es/dict.spm.txt)
-- En-Fr: [sentencepiece_model](/data/MuSTC/en_fr/spm_unigram10000.model), [dict](/data/MuSTC/en_fr/dict.spm.txt)
-- De-En: [sentencepiece_model](/data/CoVoST/de_en/spm_unigram10000.model), [dict](/data/CoVoST/de_en/dict.spm.txt)
-- Fr-En: [sentencepiece_model](/data/CoVoST/fr_en/spm_unigram10000.model), [dict](/data/CoVoST/fr_en/dict.spm.txt)
-- Es-En: [sentencepiece_model](/data/CoVoST/es_en/spm_unigram10000.model), [dict](/data/CoVoST/es_en/dict.spm.txt)
+- En-De: [Sentencepiece Model](/data/MuSTC/en_de/spm_unigram10000.model), [Dict](/data/MuSTC/en_de/dict.spm.txt)
+- En-Es: [Sentencepiece Model](/data/MuSTC/en_es/spm_unigram10000.model), [Dict](/data/MuSTC/en_es/dict.spm.txt)
+- En-Fr: [Sentencepiece Model](/data/MuSTC/en_fr/spm_unigram10000.model), [Dict](/data/MuSTC/en_fr/dict.spm.txt)
+- De-En: [Sentencepiece Model](/data/CoVoST/de_en/spm_unigram10000.model), [Dict](/data/CoVoST/de_en/dict.spm.txt)
+- Fr-En: [Sentencepiece Model](/data/CoVoST/fr_en/spm_unigram10000.model), [Dict](/data/CoVoST/fr_en/dict.spm.txt)
+- Es-En: [Sentencepiece Model](/data/CoVoST/es_en/spm_unigram10000.model), [Dict](/data/CoVoST/es_en/dict.spm.txt)
 
 We provided examples in [`example`](data/example).
 
@@ -70,12 +69,12 @@ We provided examples in [`example`](data/example).
 ### AmbigST Dataset Construction
 
 To finetune the model we released, you can use the dataset we provide
-- En-De: [train](), [dev]()
-- En-Es: [train](), [dev]()
-- En-Fr: [train](), [dev]()
-- En-De: [train](), [dev]()
-- En-Es: [train](), [dev]()
-- En-Fr: [train](), [dev]()
+- En-De: [Train](), [Dev]()
+- En-Es: [Train](), [Dev]()
+- En-Fr: [Train](), [Dev]()
+- En-De: [Train](), [Dev]()
+- En-Es: [Train](), [Dev]()
+- En-Fr: [Train](), [Dev]()
 
 To construction your own Dataset, please refer to the process we provide in [`create_homophone`](create_data/create_homophone_dictionary) and [`annotate_data`](/data/ytf/AmbigST/create_data/annotate_data)
 
@@ -86,7 +85,7 @@ To construction your own Dataset, please refer to the process we provide in [`cr
 ```bash
 model_path=path/to/your/pre-trained/model
 data_dir=dataset/MuSTC/en-${lang}
-bash bash /speechut/scripts/fine_tune/en_de/all.sh $model_path $data_dir 
+bash /speechut/scripts/fine_tune/en_de/all.sh $model_path $data_dir 
 ```
 
 Please check the folder [`/speechut/scripts/fine_tune`](speechut/scripts/fine_tune) for detailed configuration.
@@ -101,9 +100,7 @@ Then decode the model with beam search,
 model_path=path/to/your/fine-tuned/model
 data_dir=dataset/MuSTC/en-${lang}
 bash speechut/scripts/inference_st.sh $model_path $data_dir ${lang} tst-COMMON
-
-
-
+```
 ## License
 
 This project is licensed under the license found in the LICENSE file in the root directory of this source tree.
