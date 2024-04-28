@@ -1,13 +1,13 @@
-# 
+# Speech Sense Disambiguation: Tackling Homophone Ambiguity in End-to-End Speech Translation
 
-This is an implementation of  paper *""* (read the paper [here]()).
+This is an implementation of  paper *"Speech Sense Disambiguation: Tackling Homophone Ambiguity in End-to-End Speech Translation"* (read the paper [here]()).
 
 ## 👀 Overview
 
-The motivation of our **PromptST** model is to broaden the abstract representation power of the encoder of S2T models.
+We propose **AmbigST** to mitigate speech sense ambiguity in speech translation.
 
 <div align="left">
-  <img src="https://github.com/ytf-philp/PromptST/assets/54100491/13025542-33c2-4f9b-b22e-3758c088f769" width="70%">
+  <img src="/Figure/main_figure.png" width="70%">
 </div>
 
 
@@ -16,12 +16,12 @@ The motivation of our **PromptST** model is to broaden the abstract representati
 
 From En-to-XX
 <div align="left">
-  <img src="https://github.com/ytf-philp/PromptST/assets/54100491/13025542-33c2-4f9b-b22e-3758c088f769" width="70%">
+  <img src="/Figure/result1.png" width="70%">
 </div>
 
 From XX-to-En
 <div align="left">
-  <img src="https://github.com/ytf-philp/PromptST/assets/54100491/13025542-33c2-4f9b-b22e-3758c088f769" width="70%">
+  <img src="/Figure/result2.png" width="70%">
 </div>
 
 ### Download Trained Models
